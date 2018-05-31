@@ -32,4 +32,5 @@ dependencies {
     //lifecycle
     implementation rootProject.ext.libraries.livedata
     implementation rootProject.ext.libraries.viewmodel
+    implementation rootProject.ext.libraries.lifecycleExtension
 }

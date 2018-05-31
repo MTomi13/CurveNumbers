@@ -49,6 +49,7 @@ ext {
             rxandroid               : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             livedata                : "android.arch.lifecycle:livedata:${architectureComponents}",
             viewmodel               : "android.arch.lifecycle:viewmodel:${architectureComponents}",
+            lifecycleExtension      : "android.arch.lifecycle:extensions:${architectureComponents}",
     ]
 
     testLibraries = [
