@@ -1,0 +1,136 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.marton.tamas.curveappchallange.viewmodel.SummarizeViewModel" />
+
+        <variable
+            name="sumObject"
+            type="com.marton.tamas.curveappchallange.model.Sum" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#D3D3D3"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <GridLayout
+            android:id="@+id/mainGrid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:padding="@dimen/main_grid_padding"
+            android:rowCount="3">
+
+            <!-- ROW 1  -->
+            <!-- COLUMN 1  -->
+            <android.support.v7.widget.CardView
+                style="@style/CardStyle"
+                app:cardCornerRadius="@dimen/card_radius_and_elevation"
+                app:cardElevation="@dimen/card_radius_and_elevation">
+
+                <EditText
+                    android:id="@+id/number_00"
+                    style="@style/NumberEditText"
+                    android:text="00"
+                    tools:ignore="LabelFor,TextFields" />
+            </android.support.v7.widget.CardView>
+
+            <!-- COLUMN 2  -->
+
+            <android.support.v7.widget.CardView
+                style="@style/CardStyle"
+                app:cardCornerRadius="@dimen/card_radius_and_elevation"
+                app:cardElevation="@dimen/card_radius_and_elevation">
+
+                <EditText
+                    android:id="@+id/number_01"
+                    style="@style/NumberEditText"
+                    android:text="01"
+                    tools:ignore="LabelFor,TextFields" />
+            </android.support.v7.widget.CardView>
+
+            <!-- ROW 2  -->
+            <!-- COLUMN 1  -->
+
+            <android.support.v7.widget.CardView
+                style="@style/CardStyle"
+                app:cardCornerRadius="@dimen/card_radius_and_elevation"
+                app:cardElevation="@dimen/card_radius_and_elevation">
+
+                <EditText
+                    android:id="@+id/number_10"
+                    style="@style/NumberEditText"
+                    android:text="10"
+                    tools:ignore="LabelFor,TextFields" />
+            </android.support.v7.widget.CardView>
+
+            <!-- COLUMN 2  -->
+
+            <android.support.v7.widget.CardView
+                style="@style/CardStyle"
+                app:cardCornerRadius="@dimen/card_radius_and_elevation"
+                app:cardElevation="@dimen/card_radius_and_elevation">
+
+                <EditText
+                    android:id="@+id/number_11"
+                    style="@style/NumberEditText"
+                    android:text="11"
+                    tools:ignore="LabelFor,TextFields" />
+            </android.support.v7.widget.CardView>
+
+            <!-- ROW 3  -->
+            <!-- COLUMN 1  -->
+
+            <android.support.v7.widget.CardView
+                style="@style/CardStyle"
+                app:cardCornerRadius="@dimen/card_radius_and_elevation"
+                app:cardElevation="@dimen/card_radius_and_elevation">
+
+                <EditText
+                    android:id="@+id/number_20"
+                    style="@style/NumberEditText"
+                    android:text="20"
+                    tools:ignore="LabelFor,TextFields" />
+            </android.support.v7.widget.CardView>
+
+            <!-- COLUMN 2  -->
+
+            <android.support.v7.widget.CardView
+                style="@style/CardStyle"
+                app:cardCornerRadius="@dimen/card_radius_and_elevation"
+                app:cardElevation="@dimen/card_radius_and_elevation">
+
+                <EditText
+                    android:id="@+id/number_21"
+                    style="@style/NumberEditText"
+                    android:text="21"
+                    tools:ignore="LabelFor,TextFields" />
+            </android.support.v7.widget.CardView>
+        </GridLayout>
+
+        <LinearLayout
+            android:id="@+id/sum_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:padding="@dimen/total_container_padding">
+
+            <TextView
+                android:id="@+id/sum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ez az osszes"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

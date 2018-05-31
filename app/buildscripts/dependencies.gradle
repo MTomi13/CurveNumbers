@@ -1,0 +1,35 @@
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rootProject.ext.libraries.appCompat
+    implementation rootProject.ext.libraries.cardview
+    implementation rootProject.ext.libraries.design
+
+    //Test
+    androidTestImplementation rootProject.ext.testLibraries.testRunner
+    testImplementation rootProject.ext.testLibraries.mockito
+    testImplementation rootProject.ext.testLibraries.robolectric
+    testImplementation rootProject.ext.testLibraries.robolectricSharowsMultidex
+    testImplementation rootProject.ext.testLibraries.junit
+    //On debug
+    debugImplementation rootProject.ext.libraries.leakCanary
+    releaseImplementation rootProject.ext.libraries.leakCanaryNoOp
+
+    //kotlin
+    implementation rootProject.ext.libraries.kotlin
+
+    //dagger
+    implementation rootProject.ext.libraries.dagger
+    implementation rootProject.ext.libraries.daggerAndroidSupport
+    kapt rootProject.ext.libraries.daggerCompiler
+    kapt rootProject.ext.libraries.daggerProcessor
+
+    //Reactive Stuff
+    implementation rootProject.ext.libraries.rxjava
+    implementation rootProject.ext.libraries.rxandroid
+
+    //lifecycle
+    implementation rootProject.ext.libraries.livedata
+    implementation rootProject.ext.libraries.viewmodel
+}
