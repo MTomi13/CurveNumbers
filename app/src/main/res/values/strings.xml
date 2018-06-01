@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CurveAppChallange</string>
     <string name="edit_hint">Number</string>
+    <string name="calculated">Calculated: %d</string>
+    <string name="add_number">Please change any of the numbers!</string>
+    <string name="format">%d</string>
 </resources>
