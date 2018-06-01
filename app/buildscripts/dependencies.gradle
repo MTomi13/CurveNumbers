@@ -5,6 +5,7 @@ dependencies {
     implementation rootProject.ext.libraries.appCompat
     implementation rootProject.ext.libraries.cardview
     implementation rootProject.ext.libraries.design
+    implementation rootProject.ext.libraries.constraintLayout
 
     //Test
     androidTestImplementation rootProject.ext.testLibraries.testRunner
@@ -33,4 +34,7 @@ dependencies {
     implementation rootProject.ext.libraries.livedata
     implementation rootProject.ext.libraries.viewmodel
     implementation rootProject.ext.libraries.lifecycleExtension
+
+    //utils
+    implementation rootProject.ext.libraries.stream
 }

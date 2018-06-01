@@ -1,10 +1,9 @@
-package com.marton.tamas.curveappchallange.base
+package com.marton.tamas.curveappchallange.common
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import javax.inject.Inject
 import javax.inject.Provider
-import javax.inject.Singleton
 
 
 @Suppress("UNCHECKED_CAST")

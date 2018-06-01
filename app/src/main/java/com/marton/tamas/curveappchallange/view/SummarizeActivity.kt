@@ -1,4 +1,4 @@
-package com.marton.tamas.curveappchallange
+package com.marton.tamas.curveappchallange.view
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -7,7 +7,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.View.VISIBLE
-import com.marton.tamas.curveappchallange.base.ViewModelFactory
+import com.marton.tamas.curveappchallange.R
+import com.marton.tamas.curveappchallange.common.*
 import com.marton.tamas.curveappchallange.databinding.ActivitySummarizeBinding
 import com.marton.tamas.curveappchallange.flash.FlashingHandler
 import com.marton.tamas.curveappchallange.model.Sum
@@ -37,12 +38,26 @@ class SummarizeActivity : AppCompatActivity() {
 
         summarizeViewModel.sumValue.observe(this, Observer<Sum> { number -> binding.sumObject = number })
 
-        summarizeViewModel.prepareToFlashing.observe(this, Observer<Boolean> { isFlashing -> isFlashing?.let { handleFlashing() } })
+        summarizeViewModel.prepareToFlashing.observe(this, Observer<Boolean> {
+            when (intent.getIntExtra(FLASHING_MODE, 0)) {
+                HANDLER -> flashingWithHandler()
+                TIMER -> flashingWithTimer()
+                RXJAVA -> flashingWithRxJava()
+            }
+        })
 
         flashingHandler.doFlashing.observe(this, Observer<Boolean> { runOnUiThread { binding.sum.visibility = if (binding.sum.visibility == VISIBLE) View.INVISIBLE else VISIBLE } })
     }
 
-    private fun handleFlashing() {
+    private fun flashingWithHandler() {
+        flashingHandler.startFlashing()
+    }
+
+    private fun flashingWithTimer() {
+        flashingHandler.startFlashing()
+    }
+
+    private fun flashingWithRxJava() {
         flashingHandler.startFlashing()
     }
 }

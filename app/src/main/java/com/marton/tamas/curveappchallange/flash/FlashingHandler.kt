@@ -2,10 +2,11 @@ package com.marton.tamas.curveappchallange.flash
 
 import android.arch.lifecycle.MutableLiveData
 import android.os.Handler
+import com.marton.tamas.curveappchallange.common.FLASH_PERIOD
 
 
 class FlashingHandler {
-    val FLASH_PERIOD = 500L
+
 
     var doFlashing: MutableLiveData<Boolean> = MutableLiveData()
 

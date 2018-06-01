@@ -26,4 +26,11 @@
         <item name="android:inputType">number</item>
         <item name="android:maxLength">9</item>
     </style>
+
+    <style name="FlashingChooserText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:text">@string/flashing_implementation</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

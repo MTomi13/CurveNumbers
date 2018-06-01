@@ -2,7 +2,7 @@ package com.marton.tamas.curveappchallange.di
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.marton.tamas.curveappchallange.base.ViewModelFactory
+import com.marton.tamas.curveappchallange.common.ViewModelFactory
 import com.marton.tamas.curveappchallange.viewmodel.SummarizeViewModel
 import dagger.Binds
 import dagger.Module
