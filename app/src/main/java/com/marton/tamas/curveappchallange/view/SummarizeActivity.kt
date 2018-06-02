@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.animation.AnimationUtils
@@ -21,6 +22,7 @@ import com.marton.tamas.curveappchallange.flash.timer.FlashingTimer
 import com.marton.tamas.curveappchallange.model.Sum
 import com.marton.tamas.curveappchallange.viewmodel.SummarizeViewModel
 import dagger.android.AndroidInjection
+import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
 class SummarizeActivity : AppCompatActivity(), AnimationCallBack {
@@ -46,6 +48,8 @@ class SummarizeActivity : AppCompatActivity(), AnimationCallBack {
 
         val flashMode = intent.getIntExtra(FLASHING_MODE, 0)
 
+        setupToolbar(intent.getStringExtra(FLASHING_MODE_TITLE))
+
         summarizeViewModel.sumValue.observe(this, Observer<Sum> { number -> binding.sumObject = number })
 
         summarizeViewModel.prepareToFlashing.observe(this, Observer<Boolean> { isFlashing ->
@@ -62,11 +66,25 @@ class SummarizeActivity : AppCompatActivity(), AnimationCallBack {
         })
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            supportFinishAfterTransition()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun setupBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_summarize)
         summarizeViewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(SummarizeViewModel::class.java)
         binding.vm = summarizeViewModel
+    }
+
+    private fun setupToolbar(title: String?) {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(true)
+        toolbar.title = title
     }
 
     private fun flashing() {
