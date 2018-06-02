@@ -10,8 +10,7 @@ import java.util.*
 import javax.inject.Inject
 
 
-class SummarizeViewModel
-@Inject constructor() : ViewModel() {
+class SummarizeViewModel @Inject constructor() : ViewModel() {
 
     val numbers = HashMap<String, Int>()
     private lateinit var newNumber: String

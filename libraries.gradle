@@ -18,8 +18,6 @@ ext {
     androidTestRunnerVersion = "1.0.1"
     mockitoVersion = "2.12.0"
     junitVersion = "4.12"
-    robolectricVersion = "3.6.1"
-    robolectricShadowMultidex = "3.6.1"
 
     //kotlin
     kotlin_version = "1.2.41"
@@ -57,10 +55,9 @@ ext {
     ]
 
     testLibraries = [
-            testRunner                : "com.android.support.test:runner:${androidTestRunnerVersion}",
-            mockito                   : "org.mockito:mockito-core:${mockitoVersion}",
-            robolectric               : "org.robolectric:robolectric:${robolectricVersion}",
-            robolectricSharowsMultidex: "org.robolectric:shadows-multidex:${robolectricShadowMultidex}",
-            junit                     : "junit:junit:${junitVersion}",
+            testRunner              : "com.android.support.test:runner:${androidTestRunnerVersion}",
+            mockito                 : "org.mockito:mockito-core:${mockitoVersion}",
+            junit                   : "junit:junit:${junitVersion}",
+            androidArchCoreTesting  : "android.arch.core:core-testing:${architectureComponents}",
     ]
 }
