@@ -6,7 +6,7 @@ import com.marton.tamas.curveappchallange.common.FLASH_PERIOD
 import com.marton.tamas.curveappchallange.flash.FlashingActions
 
 
-class FlashingHandler(doFlashing: MutableLiveData<Boolean>) : FlashingActions {
+class FlashingHandler(private val doFlashing: MutableLiveData<Boolean>) : FlashingActions {
 
     private val handler = Handler()
     private val flashingRunnable = object : Runnable {

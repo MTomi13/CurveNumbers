@@ -29,25 +29,31 @@ class SummarizeActivity : AppCompatActivity(), AnimationCallBack {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
+    @Inject
+    lateinit var doFlashing: MutableLiveData<Boolean>
+    @Inject
+    lateinit var flashingHandler: FlashingHandler
+    @Inject
+    lateinit var flashingRxInterval: FlashingRxInterval
+    @Inject
+    lateinit var flashingRxSchedulers: FlashingRxSchedulers
+    @Inject
+    lateinit var flashingTimer: FlashingTimer
+    @Inject
+    lateinit var flashingAnimation: FlashingAnimation
 
     private lateinit var binding: ActivitySummarizeBinding
 
     private lateinit var summarizeViewModel: SummarizeViewModel
-    private var doFlashing: MutableLiveData<Boolean> = MutableLiveData()
-
-    private val flashingHandler = FlashingHandler(doFlashing)
-    private val flashingRxInterval = FlashingRxInterval(doFlashing)
-    private val flashingRxSchedulers = FlashingRxSchedulers(doFlashing)
-    private val flashingTimer = FlashingTimer(doFlashing)
-    private val flashingAnimation = FlashingAnimation(this)
+    private var flashMode: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setupBinding()
+        flashingAnimation.animationCallBack = this
 
-        val flashMode = intent.getIntExtra(FLASHING_MODE, 0)
-
+        flashMode = intent.getIntExtra(FLASHING_MODE, 0)
         setupToolbar(intent.getStringExtra(FLASHING_MODE_TITLE))
 
         summarizeViewModel.sumValue.observe(this, Observer<Sum> { number -> binding.sumObject = number })
@@ -61,8 +67,10 @@ class SummarizeActivity : AppCompatActivity(), AnimationCallBack {
             }
         })
 
-        doFlashing.observe(this, Observer<Boolean> {
-            flashing()
+        doFlashing.observe(this, Observer<Boolean> { shouldFlash ->
+            if (shouldFlash!!) {
+                flashing()
+            }
         })
     }
 
@@ -71,6 +79,12 @@ class SummarizeActivity : AppCompatActivity(), AnimationCallBack {
             supportFinishAfterTransition()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        doFlashing.value = false
+        stopFlashingByMode(flashMode)
     }
 
     private fun setupBinding() {

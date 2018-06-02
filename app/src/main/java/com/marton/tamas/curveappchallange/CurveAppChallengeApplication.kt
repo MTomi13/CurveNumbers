@@ -3,6 +3,7 @@ package com.marton.tamas.curveappchallange
 import android.app.Activity
 import android.app.Application
 import com.marton.tamas.curveappchallange.di.DaggerAppComponent
+import com.marton.tamas.curveappchallange.di.FlashingImplModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -19,6 +20,7 @@ class CurveAppChallengeApplication : Application(), HasActivityInjector {
 
         DaggerAppComponent
                 .builder()
+                .flashingImplModule(FlashingImplModule())
                 .build()
                 .inject(this)
     }
