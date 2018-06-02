@@ -1,8 +1,10 @@
 package com.marton.tamas.curveappchallange.common
 
 
-val FLASHING_MODE = "flashing_mode"
-val HANDLER = 1
-val TIMER = 2
-val RXJAVA = 3
-val FLASH_PERIOD = 500L
+const val FLASHING_MODE = "flashing_mode"
+const val HANDLER = 1
+const val TIMER = 2
+const val RXJAVA = 3
+const val RXJAVA_SCHEDULER = 4
+const val ANIMATION = 5
+const val FLASH_PERIOD = 500L

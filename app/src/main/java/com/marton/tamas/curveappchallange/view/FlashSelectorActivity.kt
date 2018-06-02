@@ -4,10 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.marton.tamas.curveappchallange.R
-import com.marton.tamas.curveappchallange.common.FLASHING_MODE
-import com.marton.tamas.curveappchallange.common.HANDLER
-import com.marton.tamas.curveappchallange.common.RXJAVA
-import com.marton.tamas.curveappchallange.common.TIMER
+import com.marton.tamas.curveappchallange.common.*
 import kotlinx.android.synthetic.main.activity_flash_selector.*
 
 
@@ -25,6 +22,12 @@ class FlashSelectorActivity : AppCompatActivity() {
         }
         rx_btn.setOnClickListener {
             startSummarizeActivity(RXJAVA)
+        }
+        rx_scheduler_btn.setOnClickListener {
+            startSummarizeActivity(RXJAVA_SCHEDULER)
+        }
+        animation_btn.setOnClickListener {
+            startSummarizeActivity(ANIMATION)
         }
     }
 

@@ -38,8 +38,13 @@ class SummarizeViewModel
     }
 
     fun onPrepareToFlashing() {
-        prepareToFlashing.value = true
+        prepareToFlashing.value = prepareToFlashing.value != true
     }
 
     private fun calculateSum(): Sum = Sum(Stream.of(numbers).mapToInt({ it.value }).sum())
+
+    override fun onCleared() {
+        super.onCleared()
+        prepareToFlashing.value = false
+    }
 }

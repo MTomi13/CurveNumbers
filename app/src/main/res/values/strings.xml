@@ -8,4 +8,6 @@
     <string name="timer_btn_title">Timer</string>
     <string name="rxjava_btn_title">RxJava</string>
     <string name="flashing_implementation">Please choose Flashing implementation</string>
+    <string name="rxjava_scheduler_btn_title">RxJava scheduler</string>
+    <string name="animation_btn_title">Animation</string>
 </resources>
